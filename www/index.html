@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- jQuery and BlockSpring-->
+  	<script src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
+  	<script src="https://cdn.blockspring.com/blockspring.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+  </head>
+  <body ng-app="starter">
+
+    <ion-pane>
+      <ion-header-bar class="bar bar-header bar-balanced">
+        <h1 class="title">Notihacks</h1>
+      </ion-header-bar>
+      <ion-content>
+        <ul class="list" id="listadearticulos">
+        <script type="text/Javascript">
+
+          blockspring.runParsed("xml-json-explorer", { "url": "http://www.rssmix.com/u/8140309/rss.json", "starting_key_path": "[\"channel\"][\"item\"]"}, { "api_key": "" }, function(res){
+
+             //console.log(res.params.my_query[0]["title"]);
+
+
+            $(res.params.my_query).each(function(index,item)
+                  {
+          var item_html = '<li class="item item-icon-left item-icon-right"><i class="icon ion-android-more-horizontal"></i>'+item.title+'<i class="icon ion-android-arrow-dropright"><i><\/li>';
+          $('#listadearticulos').append(item_html);
+          });
+
+        });
+
+        </script>
+        </ul>
+      </ion-content>
+    </ion-pane>
+  </body>
+</html>
