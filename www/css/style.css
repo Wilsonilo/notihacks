@@ -1,1 +1,15 @@
-/* Empty. Add your own CSS if you like */
+#iteminterno h2, #iteminterno h3, #iteminterno h4{
+  padding:5px 0;
+}
+
+#contenidodeitem img {
+  width:100%;
+  height: auto;
+  padding: 5px;
+}
+
+#contenidodeitem{
+  font-size:1.2em;
+  text-align: justify;
+  line-height: 135%;
+}

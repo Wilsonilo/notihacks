@@ -1,13 +1,22 @@
 <ion-view view-title="Más Información">
   <ion-content>
-    <ion-list class="list-inset">
-      <ion-item class="item-text-wrap"
-        ng-repeat="item in news | filter: { pubDate: whichartist }">
-          <h2>{{ item.title }}</h2>
-          <h3>{{ item.author.name }}</h3>
-          <h4>Fuente: <a href="{{ item.link }}" target="_blank">{{ item.link }}</a></h3>
-          <p ng-bind-html="contenidohtml(item.description)"></p>
-      </ion-item>
-    </ion-list>
-  </ion-content>
+
+<div class="list card">
+
+  <div class="item item-text-wrap"
+    ng-repeat="item in news | filter: { pubDate: whichartist }" id="iteminterno">
+
+    <h2>{{ item.title }}</h2>
+    <h4>Fuente: <a href="{{ item.link }}" target="_blank">{{ item.link }}</a></h4>
+    <p>{{ item.pubDate }}</p>
+    <p>{{ item.author.name }}</p>
+  </div>
+
+  <div class="item item-body" ng-repeat="item in news | filter: { pubDate: whichartist }">
+    <p ng-bind-html="contenidohtml(item.description)" id="contenidodeitem"></p>
+  </div>
+
+</div>
+
+</ion-content>
 </ion-view>
