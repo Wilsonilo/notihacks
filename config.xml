@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="com.ionicframework.notihacks888638" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>notihacks</name>
+<widget id="com.wilsonmunoz.notihacks" version="0.0.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+  <name>Notihacks</name>
   <description>
-        An Ionic Framework and Cordova project.
+        Aplicación feed de artículos de tecnología, entretenimiento, música, películas, cosas geek, hacking, etc.
     </description>
-  <author email="hi@ionicframework" href="http://ionicframework.com/">
-      Ionic Framework Team
+  <author email="wilsonilo@gmail.com" href="http://www.wilsonmunoz.net">
+      Wilson Muñoz
     </author>
   <content src="index.html"/>
   <access origin="*"/>
