@@ -32,24 +32,17 @@
         <h1 class="title">Notihacks</h1>
       </ion-header-bar>
       <ion-content>
-        <ul class="list" id="listadearticulos">
-        <script type="text/Javascript">
-
-          blockspring.runParsed("xml-json-explorer", { "url": "http://www.rssmix.com/u/8140309/rss.json", "starting_key_path": "[\"channel\"][\"item\"]"}, { "api_key": "" }, function(res){
-
-             //console.log(res.params.my_query[0]["title"]);
-
-
-            $(res.params.my_query).each(function(index,item)
-                  {
-          var item_html = '<li class="item item-icon-left item-icon-right"><i class="icon ion-android-more-horizontal"></i>'+item.title+'<i class="icon ion-android-arrow-dropright"><i><\/li>';
-          $('#listadearticulos').append(item_html);
-          });
-
-        });
-
-        </script>
-        </ul>
+        <label class="item item-input">
+          <i class="icon ion-search placeholder-icon"></i>
+          <input type="search" placeholder="Buscar" ng-model="busqueda">
+        </label>
+        <div ng-controller="getnews">
+          <ion-list>
+              <ion-item ng-repeat="item in news | filter: busqueda">
+                {{item.title}}
+              </ion-item>
+          </ion-list>
+        </div>
       </ion-content>
     </ion-pane>
   </body>
