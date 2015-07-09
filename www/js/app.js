@@ -22,7 +22,7 @@ angular.module('starter', ['ionic', 'ngSanitize'])
 
   $stateProvider.state('inicio', {
     url: '/inicio',
-    templateUrl: '/templates/list.html',
+    templateUrl: 'templates/list.html',
     controller: 'getnews'
   })
 
@@ -30,7 +30,7 @@ angular.module('starter', ['ionic', 'ngSanitize'])
   // will fire off the MovieDetailCtrl (controllers.js)
   .state('item', {
     url: '/inicio/item/:aId',
-    templateUrl: '/templates/item.html',
+    templateUrl: 'templates/item.html',
     controller: 'getnews'
   });
 
