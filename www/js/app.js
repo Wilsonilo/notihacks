@@ -64,14 +64,16 @@ angular.module('starter', ['ionic', 'ngSanitize'])
 
   });
   $scope.contenidohtml = function(html) {
-    $( 'a' ).each(function(){
+    $( ' #contenidodeitem a' ).each(function(){
 
       var link = $(this).attr("href");
       $(this).attr("href", "#");
-      $(this).attr("onclick", "window.open('"+ link +"', '_system', 'location=yes'); return false;")
-      $(this).attr("target", "_blank")
+      $(this).attr("onclick", "window.open('"+ link +"', '_system', 'location=yes'); return false;");
 
-    })
+    });
+    var linkfuente = $("#fuentelink").attr("href");
+    $("#fuentelink").attr("onclick", "window.open('"+ linkfuente +"', '_system', 'location=yes'); return false;");
+
   return $sce.trustAsHtml(html);
 
   };

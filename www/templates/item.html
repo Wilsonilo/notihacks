@@ -7,7 +7,7 @@
     ng-repeat="item in news | filter: { pubDate: whichartist }" id="iteminterno">
 
     <h2>{{ item.title }}</h2>
-    <h4>Fuente: <a href="{{ item.link }}" target="_blank">{{ item.link }}</a></h4>
+    <h4>Fuente: <a href="{{ item.link }}" id="fuentelink">{{ item.link }}</a></h4>
     <p>{{ item.pubDate }}</p>
     <p>{{ item.author.name }}</p>
   </div>
