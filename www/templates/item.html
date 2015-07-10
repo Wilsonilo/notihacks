@@ -12,11 +12,10 @@
     <p>{{ item.author.name }}</p>
   </div>
 
-  <div class="item item-body" ng-repeat="item in news | filter: { pubDate: whichartist }">
-    <p ng-bind-html="contenidohtml(item.description)" id="contenidodeitem"></p>
+  <div class="item item-body" ng-repeat="item in news | filter: { pubDate: whichartist }" prueba>
+    <div ng-bind-html="contenidohtml(item.description)" id="contenidodeitem"></div>
   </div>
 
 </div>
-
 </ion-content>
 </ion-view>

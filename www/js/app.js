@@ -38,6 +38,21 @@ angular.module('starter', ['ionic', 'ngSanitize'])
   $urlRouterProvider.otherwise('inicio');
 
 })
+// .directive( 'prueba', function() {
+//   var linkFn = function( scope, element, attrs ) {
+
+//     // The next two lines duplicate the effect of the jQuery above.
+//     $( 'a' ).each(function(){
+
+//       console.log("link")
+
+//     })
+//   }
+
+//   return {
+//     link: linkFn
+//   }
+// })
 //Obtener las news
 .controller("getnews", ["$scope", "$sce", "$http", '$state',
     function($scope, $sce, $http, $state){
@@ -46,10 +61,19 @@ angular.module('starter', ['ionic', 'ngSanitize'])
 
     $scope.news     = data.channel.item;
     $scope.whichartist = $state.params.aId;
-    $scope.contenidohtml = function(html) {
-          return $sce.trustAsHtml(html);
-    };
 
   });
+  $scope.contenidohtml = function(html) {
+    $( 'a' ).each(function(){
+
+      var link = $(this).attr("href");
+      $(this).attr("href", "#");
+      $(this).attr("onclick", "window.open('"+ link +"', '_system', 'location=yes'); return false;")
+      $(this).attr("target", "_blank")
+
+    })
+  return $sce.trustAsHtml(html);
+
+  };
 
 }])
