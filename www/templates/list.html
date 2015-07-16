@@ -4,14 +4,14 @@
 <ion-view view-title="Notihacks">
 <ion-content>
 
-  <ion-refresher>
+  <ion-refresher on-refresh="doRefresh()">
   </ion-refresher>
   <label class="item item-input">
     <i class="icon ion-search placeholder-icon"></i>
     <input type="search" placeholder="Buscar" ng-model="busqueda">
   </label>
-  <ion-list>
-    <ion-item ng-repeat="item in news | filter: busqueda" class="item-text-wrap item item-icon-right" href="#/inicio/item/{{item.pubDate}}">
+  <ion-list id="listageneral">
+    <ion-item ng-repeat="item in news | filter: busqueda | filter: { title: '!Samsung'} | filter: { title: '!Android'} | filter: { title: '!Windows'}" class="item-text-wrap item item-icon-right" href="#/inicio/item/{{news.indexOf(item)}}">
       {{item.title}}
       <i class="icon ion-arrow-right-b"></i>
     </ion-item>

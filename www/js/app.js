@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 var objetos = [];
-angular.module('starter', ['ionic', 'ngSanitize'])
+angular.module('starter', ['ionic', 'ngSanitize', 'angular-loading-bar']) 
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -38,29 +38,51 @@ angular.module('starter', ['ionic', 'ngSanitize'])
   $urlRouterProvider.otherwise('inicio');
 
 })
-// .directive( 'prueba', function() {
+// .directive( 'transit', function() {
 //   var linkFn = function( scope, element, attrs ) {
 
-//     // The next two lines duplicate the effect of the jQuery above.
-//     $( 'a' ).each(function(){
+//     if (scope.$last){
+//       $('#listageneral .item').each(function(){
 
-//       console.log("link")
+//       $(this).transition({ opacity: 1});
 
-//     })
+//     });
+
+//     }
+
 //   }
-
 //   return {
 //     link: linkFn
 //   }
+
 // })
 //Obtener las news
 .controller("getnews", ["$scope", "$sce", "$http", '$state',
     function($scope, $sce, $http, $state){
-
   $http.get("http://www.rssmix.com/u/8140309/rss.json").success(function(data){
 
     $scope.news     = data.channel.item;
     $scope.whichartist = $state.params.aId;
+
+
+
+  });
+
+  $scope.doRefresh = function(){
+
+    $http.get("http://www.rssmix.com/u/8140309/rss.json").success(function(data){
+
+    $scope.news       = data.channel.item;
+    $scope.$broadcast('scroll.refreshComplete');
+
+    });
+
+  }
+
+
+  $scope.$on('cfpLoadingBar:completed', function(){
+    
+    $("#listageneral *").hide().fadeIn(1500)
 
   });
   $scope.contenidohtml = function(html) {

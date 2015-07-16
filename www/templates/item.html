@@ -1,19 +1,18 @@
 <ion-view view-title="Más Información">
   <ion-content>
 
-<div class="list card">
+<div class="list card" ng-model="news">
 
-  <div class="item item-text-wrap"
-    ng-repeat="item in news | filter: { pubDate: whichartist }" id="iteminterno">
+  <div class="item item-text-wrap" id="iteminterno">
 
-    <h2>{{ item.title }}</h2>
-    <h4>Fuente: <a href="{{ item.link }}" id="fuentelink">{{ item.link }}</a></h4>
-    <p>{{ item.pubDate }}</p>
-    <p>{{ item.author.name }}</p>
+    <h2>{{ news[whichartist].title }}</h2>
+    <h4>Fuente: <a href="{{ news[whichartist].link }}" id="fuentelink">{{ news[whichartist].link }}</a></h4>
+    <p>{{ news[whichartist].pubDate }}</p>
+    <p>{{ news[whichartist].author.name }}</p>
   </div>
 
-  <div class="item item-body" ng-repeat="item in news | filter: { pubDate: whichartist }" prueba>
-    <div ng-bind-html="contenidohtml(item.description)" id="contenidodeitem"></div>
+  <div class="item item-body" prueba>
+    <div ng-bind-html="contenidohtml(news[whichartist].description)" id="contenidodeitem"></div>
   </div>
 
 </div>

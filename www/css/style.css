@@ -1,3 +1,6 @@
+body {
+  cursor: url('http://ionicframework.com/img/finger.png'), auto;
+}
 #iteminterno h2, #iteminterno h3, #iteminterno h4{
   padding:5px 0;
 }
@@ -12,4 +15,19 @@
   font-size:1.2em;
   text-align: justify;
   line-height: 135%;
+}
+/*#listageneral *{
+	opacity: 0;
+}*/
+#listageneral a {
+	-webkit-transition: all 0.3s ease-out;
+	-moz-transition: all 0.3s ease-out;
+	-o-transition: all 0.3s ease-out;
+	transition: all 0.3s ease-out;
+}
+#listageneral a:hover{ 
+	-webkit-transform: scale(0.9);
+	-moz-transform: scale(0.9);
+	-o-transorm: scale(0.9)
+	transform: scale(0.9);
 }
